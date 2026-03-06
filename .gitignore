@@ -33,3 +33,6 @@ build/
 
 # OS generated files
 .env.test
+
+node_modules/
+.env
