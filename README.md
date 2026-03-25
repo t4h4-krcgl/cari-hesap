@@ -1,4 +1,70 @@
-Cari Takip Sistemi (Backend API)Bu proje, işletmelerin borç-alacak ilişkilerini, müşteri kayıtlarını ve finansal hareketlerini yönetebilmesi için geliştirilmiş, N-Tier (Katmanlı) Mimari prensiplerine dayalı bir RESTful API çözümüdür.🛠 Teknik Veri SözlüğüKategoriKullanılan Teknolojiler / AraçlarDil & Framework.NET 8.0 / ASP.NET Core Web APIVeri ErişimiEntity Framework Core (Code-First)VeritabanıMSSQL / PostgreSQL (Tercihinize göre güncelleyin)GüvenlikJWT (JSON Web Token), Identity FrameworkValidasyonFluentValidationDokümantasyonSwagger / OpenAPIMimari YapıN-Tier (Data Access, Business, Web API, Core)🏗 Mimari Yapı ve PrensiplerProje, sürdürülebilirlik ve test edilebilirlik standartlarını karşılamak adına aşağıdaki yaklaşımlarla inşa edilmiştir:SOLID Prensipleri: Her sınıf ve metodun tek bir sorumluluğu olması (SRP) ve bağımlılıkların arayüzler üzerinden yönetilmesi (DI) hedeflenmiştir.Repository Pattern: Veri erişim mantığı, iş mantığından soyutlanarak merkezi bir noktadan yönetilmektedir.Global Error Handling: Tüm hata süreçleri bir middleware üzerinden yakalanarak standart bir hata modeli ile döndürülmektedir.DTO (Data Transfer Object): Veritabanı varlıklarının (Entities) dış dünyaya doğrudan açılmaması için DO modelleri kullanılmaktadır.🚀 Temel ÖzelliklerCari Hesap Yönetimi: Müşteri/Tedarikçi bazlı hesap oluşturma, güncelleme ve silme.İşlem Takibi: Borç/Alacak dekontlarının sisteme işlenmesi ve bakiye hesaplamaları.Raporlama: Dönemsel bazda cari ekstre ve genel finansal durum çıktıları.Yetkilendirme: Rol tabanlı (Admin/User) erişim kısıtlamaları.💻 Kurulum ve ÇalıştırmaAşağıdaki adımları takip ederek projeyi yerel ortamınızda ayağa kaldırabilirsiniz:Depoyu Klonlayın:Bashgit clone https://github.com/t4h4-krcgl/cari-hesap.git
-Veritabanı Yapılandırması: appsettings.json dosyasındaki ConnectionStrings alanını kendi SQL sunucunuza göre düzenleyin.Migration Uygulayın:Bashdotnet ef database update
-Projeyi Çalıştırın:Bashdotnet run --project WebAPI
-API Testi: Tarayıcı üzerinden https://localhost:[PORT]/swagger adresine giderek endpointleri test edebilirsiniz.📈 Planlanan Geliştirmeler (Roadmap)[ ] Unit Test kapsamının (xUnit) %80 üzerine çıkarılması.[ ] Dockerize edilerek docker-compose desteği eklenmesi.[ ] Loglama mekanizmasına Serilog (Elasticsearch/File) entegrasyonu.[ ] Dashboard için temel bir Frontend (React/Angular) entegrasyonu.Geliştirici: Taha KaracagilEğitim: Pamukkale Üniversitesi - Bilgisayar Mühendisliği
+# 📊 Cari Takip Sistemi (Backend API)
+
+İşletmelerin borç-alacak ilişkilerini, müşteri kayıtlarını ve finansal hareketlerini modernize etmek amacıyla geliştirilmiş, **N-Tier (Katmanlı) Mimari** prensiplerine dayalı profesyonel bir RESTful API çözümüdür.
+
+---
+
+### 🛠 Teknik Veri Sözlüğü
+
+| Kategori | Kullanılan Teknolojiler / Araçlar |
+| :--- | :--- |
+| **Dil & Framework** | .NET 8.0 / ASP.NET Core Web API |
+| **Veri Erişimi** | Entity Framework Core (Code-First) |
+| **Veritabanı** | MSSQL / PostgreSQL |
+| **Güvenlik** | JWT (JSON Web Token), Identity Framework |
+| **Validasyon** | FluentValidation |
+| **Dokümantasyon** | Swagger / OpenAPI |
+| **Mimari** | N-Tier (Data Access, Business, Web API, Core) |
+
+---
+
+### 🏗 Mimari Yapı ve Prensipler
+
+Proje, sürdürülebilirlik ve test edilebilirlik standartlarını karşılamak adına aşağıdaki modern yaklaşımlarla inşa edilmiştir:
+
+* **SOLID Prensipleri:** Her sınıfın tek bir sorumluluğu olması ve bağımlılıkların `Dependency Injection` ile yönetilmesi.
+* **Repository Pattern:** Veri erişim mantığının iş mantığından (Business Logic) tamamen soyutlanması.
+* **Global Error Handling:** Tüm hataların bir middleware üzerinden yakalanarak standart hata modelleriyle döndürülmesi.
+* **DTO (Data Transfer Object):** Veritabanı varlıklarının (Entities) güvenliğini korumak adına dış dünyaya sadece gerekli verilerin açılması.
+
+---
+
+### 🚀 Temel Özellikler
+
+* ✅ **Cari Hesap Yönetimi:** Müşteri ve Tedarikçi bazlı tam CRUD desteği.
+* ✅ **İşlem Takibi:** Borç/Alacak dekontlarının işlenmesi ve otomatik bakiye hesaplama.
+* ✅ **Raporlama:** Dönemsel cari ekstre ve genel finansal durum çıktıları.
+* ✅ **Yetkilendirme:** Rol tabanlı (Admin/User) erişim kısıtlamaları.
+
+---
+
+---
+
+### 💻 Kurulum ve Çalıştırma
+
+1.  **Veritabanı Yapılandırması:** `appsettings.json` dosyasındaki `ConnectionStrings` alanını kendi SQL sunucunuza göre düzenleyin.
+2.  **Migration Uygulayın:**
+    ```bash
+    dotnet ef database update
+    ```
+3.  **Projeyi Çalıştırın:**
+    ```bash
+    dotnet run --project WebAPI
+    ```
+
+---
+
+### 📈 Planlanan Geliştirmeler (Roadmap)
+
+- [ ] Unit Test kapsamının (xUnit) %80 üzerine çıkarılması.
+- [ ] Dockerize edilerek `docker-compose` desteği eklenmesi.
+- [ ] Loglama mekanizmasına Serilog (Elasticsearch/File) entegrasyonu.
+- [ ] Dashboard için temel bir Frontend (React/Angular) entegrasyonu.
+
+---
+
+**Geliştirici:** [Taha Karacagil](https://github.com/t4h4-krcgl)  
+**Eğitim:** Pamukkale Üniversitesi - Bilgisayar Mühendisliği
+
+
+   
